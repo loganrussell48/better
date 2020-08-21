@@ -1,3 +1,8 @@
+## 0.1.0-dev.4
+- Updated readme
+- Formatted code
+- Conform to pub standards
+
 ## 0.1.0-dev.3
 - export int_summary_stats
 

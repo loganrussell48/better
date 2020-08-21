@@ -1,7 +1,6 @@
 import 'int_summary_stats.dart';
 
 extension BIterableIntNNBD on Iterable<int> {
-
   static final String _rangeInputSizeErrorMessage =
       '''The iterable upon which the "range" getter was invoked has invalid size.
        Make sure there are only 2 num elements in the iterable.''';
@@ -20,12 +19,10 @@ extension BIterableIntNNBD on Iterable<int> {
   ///
   /// Notice that the input is `num` not `int`.
   Iterable<int> get range {
-    if(length != 2) throw ArgumentError(_rangeInputSizeErrorMessage);
+    if (length != 2) throw ArgumentError(_rangeInputSizeErrorMessage);
     var it = iterator;
     var start = (it..moveNext()).current;
     var end = (it..moveNext()).current;
-    return [for(int i = start.ceil(); i <= end; i++) i];
+    return [for (int i = start.ceil(); i <= end; i++) i];
   }
-
 }
-

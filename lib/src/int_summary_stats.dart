@@ -7,26 +7,32 @@ class IntSummaryStatistics {
   BigInt _sum = BigInt.zero;
   BigInt _prod = BigInt.one;
 
-  IntSummaryStatistics(Iterable<int> iterable){
-    if(iterable.isEmpty) return;
+  IntSummaryStatistics(Iterable<int> iterable) {
+    if (iterable.isEmpty) return;
     var it = iterable.iterator;
-    while(it.moveNext()){
+    while (it.moveNext()) {
       _count++;
       _sum += BigInt.from(it.current);
       _prod *= BigInt.from(it.current);
-      if(it.current < _min) _min = it.current;
-      if(it.current > _max) _max = it.current;
+      if (it.current < _min) _min = it.current;
+      if (it.current > _max) _max = it.current;
     }
     _range = _max - _min;
     _average = _sum / BigInt.from(_count);
   }
 
   int get min => _min;
+
   int get max => _max;
+
   int get range => _range;
+
   int get count => _count;
+
   double get average => _average;
+
   BigInt get sum => _sum;
+
   BigInt get product => _prod;
 
   @override
