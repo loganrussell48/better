@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:better/better.dart';
 
+//TODO: Changes here should also be made to the readme
 void main() {
   var r = Random();
   var length = r.nextInt(1 << 12);

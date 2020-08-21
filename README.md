@@ -1,8 +1,17 @@
-A library for Dart developers.
+A library for adding many convenience methods / getters as extensions to commonly used dart classes. 
 
-Created from templates made available by Stagehand under a BSD-style
-[license](https://github.com/dart-lang/stagehand/blob/master/LICENSE).
+###`Iterable<int>`
+####`sum`
+`BigInt get sum`
+Calculates the sum of all the elements in the list. 
+**Runtime**: *O(n)* 
 
+`BigInt get product`
+Calculates the product of all the elements in the list.
+
+`IntSummaryStatistics get stats`
+Returns the summary stats for this iterable. Stats include,
+sum, product, max, min, count, and range
 ## Usage
 
 A simple usage example:
@@ -17,10 +26,10 @@ main() {
   var list = [for(int i = 0; i < length; i++) r.nextInt(1 << 31)];
   print('list generated');
   print('calculating stats');
-  var start = DateTime.now();
+  var start = DateTime.now().millisecondsSinceEpoch;
   var stats = list.stats;
-  var end = DateTime.now();
-  print('Finished calculating stats in ${end.millisecondsSinceEpoch - start.millisecondsSinceEpoch} ms');
+  var end = DateTime.now().millisecondsSinceEpoch;
+  print('Finished calculating stats in ${end - start} ms');
   print(stats);
 }
 ```

@@ -1,16 +1,8 @@
-// ignore: todo
-// TODO: Put public facing types in this file.
-
 import 'int_summary_stats.dart';
-
-extension BIterableInt on Iterable<int?> {
-  BigInt get sum => fold(BigInt.zero, (l, r) => l + BigInt.from(r ?? 0));
-  BigInt get product => fold(BigInt.one, (l, r) => l * BigInt.from(r ?? 1));
-}
 
 extension BIterableIntNNBD on Iterable<int> {
 
-  static String _rangeInputSizeErrorMessage =
+  static final String _rangeInputSizeErrorMessage =
       '''The iterable upon which the "range" getter was invoked has invalid size.
        Make sure there are only 2 num elements in the iterable.''';
 

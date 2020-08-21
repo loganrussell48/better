@@ -11,3 +11,12 @@ build/
 
 # Directory created by dartdoc
 doc/api/
+
+# Intellij
+.idea
+/.idea/libraries/
+
+# VS Code
+.vscode
+
+/.idea/

@@ -8,7 +8,7 @@ class IntSummaryStatistics {
   BigInt _prod = BigInt.one;
 
   IntSummaryStatistics(Iterable<int> iterable){
-    if(iterable.length == 0) return;
+    if(iterable.isEmpty) return;
     var it = iterable.iterator;
     while(it.moveNext()){
       _count++;

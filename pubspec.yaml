@@ -1,19 +1,20 @@
 name: better
-description: A starting point for Dart libraries or applications.
-# version: 0.1.0
-# homepage: https://www.example.com
+description: This package serves as an extension to many dart classes with the goal to provide a more fluid development experience
+version: 0.1.0-dev.3
+homepage: https://github.com/loganrussell48/better
 
 environment:
-  sdk: '>=2.9.0'
+  sdk: '>=2.8.1 <3.0.0'
 
 dependencies:
-  collection: 1.14.13-dev
+  collection: ^1.14.13-dev
   test: ^1.9.0
+  pedantic: ^1.9.0
 
 # Temporary override as the null safety enabled versions of this package is
 # not yet published to pub.dev.
-dependency_overrides:
-  collection:
-    git:
-      url: https://github.com/dart-lang/collection
-      ref: null_safety
+#dependency_overrides:
+#  collection:
+#    git:
+#      url: https://github.com/dart-lang/collection
+#      ref: null_safety
