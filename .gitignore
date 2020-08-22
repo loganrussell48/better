@@ -13,10 +13,8 @@ build/
 doc/api/
 
 # Intellij
-.idea
-/.idea/libraries/
+.idea/
 
 # VS Code
-.vscode
+.vscode/
 
-/.idea/
