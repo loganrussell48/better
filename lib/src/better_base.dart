@@ -1,3 +1,5 @@
+import 'dart:math';
+import 'package:meta/meta.dart';
 import 'package:better/src/num_summary_stats.dart';
 
 import 'int_summary_stats.dart';
@@ -78,6 +80,69 @@ extension BIterableT<T> on Iterable<T> {
 extension Strings on String {
   static Comparator<String> get shortestFirst => (a,b) => a.length - b.length;
   static Comparator<String> get longestFirst => (a, b) => b.length - a.length;
+}
+
+extension Chars on Random {
+  static int get randAlpha => Random().nextInt(26) + 65 + Bit.random * 32;
+  static int get randAlphaLower => Random().nextInt(26) + 97;
+  static int get randAlphaUpper => Random().nextInt(26) + 65;
+  static int get randDigit => Random().nextInt(10) + '0'.codeUnitAt(0);
+}
+
+extension RandomStrings on String {
+  ///generates random chars that match [a-zA-Z]
+  static String alpha(int length){
+    return String.fromCharCodes([for(var i in length.range) Chars.randAlpha]);
+  }
+
+  ///generates random chars that match [A-Z]
+  static String alphaUpper(int length){
+    return String.fromCharCodes([for(var i in length.range) Chars.randAlphaUpper]);
+  }
+
+  ///generates random chars that match [a-z]
+  static String alphaLower(int length){
+    return String.fromCharCodes([for(var i in length.range) Chars.randAlphaLower]);
+  }
+
+  ///generates random chars that match [0-9]
+  static String numeric(int length){
+    return String.fromCharCodes([for(var i in length.range) Chars.randDigit]);
+  }
+
+  static List<String> alphaList({required int count, required int stringLength, bool randomizeCount = false, bool randomizeLength = false}){
+    return [for(var i in (randomizeCount ? Random().nextInt(count) : count).range) RandomStrings.alpha(randomizeLength ? Random().nextInt(stringLength) : stringLength)];
+  }
+
+  static List<String> alphaLowerList({required int count, required int stringLength, bool randomizeCount = false, bool randomizeLength = false}){
+    return [for(var i in (randomizeCount ? Random().nextInt(count) : count).range) RandomStrings.alphaLower(randomizeLength ? Random().nextInt(stringLength) : stringLength)];
+  }
+
+  static List<String> alphaUpperList({required int count, required int stringLength, bool randomizeCount = false, bool randomizeLength = false}){
+    return [for(var i in (randomizeCount ? Random().nextInt(count) : count).range) RandomStrings.alphaUpper(randomizeLength ? Random().nextInt(stringLength) : stringLength)];
+  }
+
+  static List<String> numericList({required int count, required int stringLength, bool randomizeCount = false, bool randomizeLength = false}){
+    if(count < 0) throw ArgumentError.value(count, 'count', 'Value should be >= 0');
+    if(stringLength < 0) throw ArgumentError.value(stringLength, 'stringLength', 'value should be >= 0');
+    return [for(var i in (randomizeCount ? Random().nextInt(count) : count).range) RandomStrings.numeric(randomizeLength ? Random().nextInt(stringLength) : stringLength)];
+  }
+
+
+
+}
+
+extension Bool on bool {
+  /// a lot of people don't know that Random has nextBool, so this will
+  /// help with discovery
+  static bool get flip => Random().nextBool();
+
+  /// returns 1 if true, 0 if false
+  int get asInt => this ? 1 : 0;
+}
+
+extension Bit on bool {
+  static int get random => Random().nextBool().asInt;
 }
 
 extension Comparators<T> on Comparator<T> {

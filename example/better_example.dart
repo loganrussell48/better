@@ -17,12 +17,8 @@ void main() {
   print(stats);
 
   var numStrings = r.nextInt(20) + 1;
-  var stringsCodepoints = <List<int>>[];
-  for(var i in [0, numStrings].asRange){
-    var stringLength = r.nextInt(20) + 1;
-    stringsCodepoints.add([for(var j in stringLength.range) r.nextInt(25) + 65]);
-  }
-  var strings = stringsCodepoints.map((e) => String.fromCharCodes(e)).toList();
+  var strings = [for(var i in numStrings.range) RandomStrings.alpha(Random().nextInt(10))];
+  strings = RandomStrings.alphaList(count: 5, stringLength: 5, randomizeCount: true, randomizeLength: true);
   print('Unsorted: $strings');
   print('Sorted: ${strings..sort(Strings.shortestFirst)}');
   print('Sorted: ${strings..sort(Strings.shortestFirst.reversed)}');
