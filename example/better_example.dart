@@ -22,13 +22,8 @@ void main() {
   // String generation & sorting with comparators
   print('\n\nString generation & sorting with comparators\n=======================================================================================');
   var numStrings = r.nextInt(20) + 1;
-  var stringsCodePoints = <List<int>>[];
-  for(var i in [0, numStrings].asRange){
-    var stringLength = r.nextInt(20) + 1;
-    // This generates Strings of capital letters from A-Z
-    stringsCodePoints.add([for(var j in stringLength.range) r.nextInt(25) + 65]);
-  }
-  var strings = stringsCodePoints.map((e) => String.fromCharCodes(e)).toList();
+  var strings = [for(var i in numStrings.range) RandomStrings.alpha(Random().nextInt(10))];
+  strings = RandomStrings.alphaList(count: 5, stringLength: 5, randomizeCount: true, randomizeLength: true);
   print('Unsorted: $strings');
   print('Sorted: ${strings..sort(Strings.shortestFirst)}');
   print('Sorted: ${strings..sort(Strings.shortestFirst.reversed)}');
