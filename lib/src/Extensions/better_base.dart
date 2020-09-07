@@ -111,19 +111,19 @@ extension RandomStrings on String {
     return String.fromCharCodes([for(var i in length.range) Chars.randDigit]);
   }
 
-  static List<String> alphaList({required int count, required int stringLength, bool randomizeCount = false, bool randomizeLength = false}){
+  static List<String> alphaList({@Required() int count, @Required() int stringLength, bool randomizeCount = false, bool randomizeLength = false}){
     return [for(var i in (randomizeCount ? Random().nextInt(count) : count).range) RandomStrings.alpha(randomizeLength ? Random().nextInt(stringLength) : stringLength)];
   }
 
-  static List<String> alphaLowerList({required int count, required int stringLength, bool randomizeCount = false, bool randomizeLength = false}){
+  static List<String> alphaLowerList({@Required() int count, @Required() int stringLength, bool randomizeCount = false, bool randomizeLength = false}){
     return [for(var i in (randomizeCount ? Random().nextInt(count) : count).range) RandomStrings.alphaLower(randomizeLength ? Random().nextInt(stringLength) : stringLength)];
   }
 
-  static List<String> alphaUpperList({required int count, required int stringLength, bool randomizeCount = false, bool randomizeLength = false}){
+  static List<String> alphaUpperList({@Required() int count, @Required() int stringLength, bool randomizeCount = false, bool randomizeLength = false}){
     return [for(var i in (randomizeCount ? Random().nextInt(count) : count).range) RandomStrings.alphaUpper(randomizeLength ? Random().nextInt(stringLength) : stringLength)];
   }
 
-  static List<String> numericList({required int count, required int stringLength, bool randomizeCount = false, bool randomizeLength = false}){
+  static List<String> numericList({@Required() int count, @Required() int stringLength, bool randomizeCount = false, bool randomizeLength = false}){
     if(count < 0) throw ArgumentError.value(count, 'count', 'Value should be >= 0');
     if(stringLength < 0) throw ArgumentError.value(stringLength, 'stringLength', 'value should be >= 0');
     return [for(var i in (randomizeCount ? Random().nextInt(count) : count).range) RandomStrings.numeric(randomizeLength ? Random().nextInt(stringLength) : stringLength)];

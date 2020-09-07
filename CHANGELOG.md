@@ -1,3 +1,7 @@
+## 0.1.0-dev.5
+- Added Regex for Email Addresses & NA Phone Numbers
+- Added Random Generation methods (check example)
+
 ## 0.1.0-dev.4
 - Updated readme
 - Formatted code
