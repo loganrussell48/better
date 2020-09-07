@@ -1,6 +1,7 @@
+import 'package:better/src/Utils/RegexUtils.dart';
 import 'package:better/src/num_summary_stats.dart';
 
-import 'int_summary_stats.dart';
+import '../int_summary_stats.dart';
 
 extension BIterableInt on Iterable<int> {
   static final String _rangeInputSizeErrorMessage =
@@ -87,7 +88,6 @@ extension Comparators<T> on Comparator<T> {
   Comparator<T> get reversed => (T a, T b) => -1 * this(a, b);
 }
 
-
 extension BIterableComparable<T extends Comparable> on Iterable<T> {
 
   T max(Comparator<T> cmp) {
@@ -102,3 +102,24 @@ extension BIterableComparable<T extends Comparable> on Iterable<T> {
   }
 
 }
+
+extension StringUtils on String {
+  bool get isValidEmail => RegexUtils.isValidEmailAddress(this);
+  bool get isValidNorthAmeicanPhoneNumber => RegexUtils.isValidNAPhoneNumber(this);
+}
+//extension BListComparable<T> on List<T> {
+//  bool isSorted({Comparator comparator}){
+//    if(isEmpty){
+//      return true;
+//    }
+//    if(comparator == null){
+//      if(T is Comparable){
+//        for(var i = 0; i < length - 1; i++){
+//          if((this[i] ).compareTo(this[i+1]) > 0){
+//            return false;
+//          }
+//        }
+//      }
+//    }
+//  }
+//}
