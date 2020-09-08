@@ -1,16 +1,16 @@
 A library for adding many convenience methods / getters as extensions to commonly used dart classes. 
 
-#Iterable < int >
+# Iterable < int >
 ### BigInt get sum
 * Calculates the sum of all the elements in the `Iterable`. 
 * **Runtime**: *O(n)* where *n* is the size of the `Iterable`
 
-###BigInt get product
+### BigInt get product
 * Calculates the product of all the elements in the `Iterable`.
 * **Runtime**: *O(n\*m)* where *n* is the number of elements in the `Iterable`, 
 and *m* is the complexity of `BigInt`'s `*` operation (unknown at the moment)
 
-###IntSummaryStatistics get stats
+### IntSummaryStatistics get stats
 * Returns the summary stats for this iterable. Stats include,
 sum, product, max, min, count, and range
 * **Runtime**: *O(n\*m)* where *n* is the number of elements in the `Iterable`, 
