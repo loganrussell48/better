@@ -9,6 +9,8 @@ environment:
 dependencies:
   test: ^1.9.0
   pedantic: ^1.9.0
+  meta: ^1.2.3
+  intl: ^0.16.1
 
 # Temporary override as the null safety enabled versions of this package is
 # not yet published to pub.dev.

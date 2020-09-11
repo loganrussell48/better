@@ -3,7 +3,7 @@ class IntSummaryStatistics {
   int _max = 1 << 63;
   int _range = (1 << 63) - (~(1 << 63));
   int _count = 0;
-  double _average = 0;
+  num _average = 0;
   BigInt _sum = BigInt.zero;
   BigInt _prod = BigInt.one;
 
